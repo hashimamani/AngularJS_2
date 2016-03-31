@@ -1,0 +1,73 @@
+<!--
+ * Cytonn Technologies
+ *
+ * @author: Hashim Amani <hamani@cytonn.com>
+ *
+ * Project: Javascript_events.
+ *
+ *-->
+
+<html lang="en">
+<head>
+  <title>AngularJS - UI Router - Example 1</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+  <link href='app.css' rel='stylesheet' type='text/css'>
+  <link href='bootsrap.min.css' rel='stylesheet' type='text/css'>
+  
+  
+
+</head>
+<body ng-app="App">
+	
+	<div ng-controller="Controller1">
+		<header>
+			<h1>APP Router</h1>
+			<h2></h2>
+		</header>
+
+		<nav>
+			<ul>
+				<li>
+					<a 	href="#" title="left" 	
+						ng-class="{active:transition=='slide-left'}" 		ng-click="left()"> 
+						Home
+					</a>
+				</li>
+				<li>
+					<a 	href="#" title="right" 	
+						ng-class="{'active':transition=='slide-right'}" 	ng-click="right()">
+						About
+					</a>
+				</li>
+				<li>
+					<a 	href="#" title="top" 	
+						ng-class="{'active':transition=='slide-top'}" 		ng-click="top()">
+						Portfolio
+					</a>
+				</li>
+				<li>
+					<a 	href="#" title="bottom" 	
+						ng-class="{'active':transition=='slide-bottom'}" 	ng-click="bottom()">
+						Contacts
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="content">
+			<div ui-view ng-class="transition">
+				Welcome User
+			</div>
+		</div>
+	</div>
+
+  <script data-require="angular.js@1.2.10" data-semver="1.2.10" src="angular.min.js"></script>
+  <script data-require="angular-animate@1.2.11" data-semver="1.2.11" src="http://code.angularjs.org/1.2.11/angular-animate.min.js"></script>
+  <script src="angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

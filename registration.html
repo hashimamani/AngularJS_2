@@ -1,0 +1,55 @@
+<!--
+ * Cytonn Technologies
+ *
+ * @author: Hashim Amani <hamani@cytonn.com>
+ *
+ * Project: Project: Angular JS.
+ *
+ *-->
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="angular.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-app="App">
+  <div ng-controller="CrudCtrl">
+    <h2>Enter Customer Details Below</h2>
+    Search: <input type="search" class="fa fa-search" ng-model="searchcustomer">
+    <br>
+    <br>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <td>Name</td>
+        <td>Country</td>
+        <td></td>
+      </tr>
+      <tr ng-repeat="profile in Profiles | filter:searchcustomer">
+        <td>
+          <input type="text" ng-model="profile.name" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.name }}</span>
+        </td>
+        <td>
+          <input type="text" ng-model="profile.country" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.country }}</span>
+        </td>
+        <td>
+          <button class="orange" ng-click="edit($index)" ng-hide="profile.editable">Edit</button>
+          <button class="green" ng-click="save($index)" ng-show="profile.editable">Save</button>
+          <button class="red" ng-click="delete($index)"> Delete</button>
+        </td>
+      </tr>
+    </table>
+    <br>
+
+    <button class="black" ng-click="add()">Add Customers</button>
+
+  </div>
+  </body>
+
+</html>
